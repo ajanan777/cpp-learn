@@ -1,0 +1,281 @@
+#include <algorithm>
+#include <functional>
+#include <iostream>
+#include <string>
+#include <vector>
+
+// int main() {
+//     int age = 16;
+//     double height = 1.43;
+//     std::string name = "Ajanan";
+
+//     if (age >= 18) {
+//         std::cout << "Age is " << age;
+//     } else {
+//         std::cout << "My name is " << name << ". What's yours \n";
+//     }
+
+//     int i = 0;
+//     while (i < 5) {
+//         if (i == 0) {
+//             std::cout << "\n";
+//         }
+//         std::cout << i;
+//         i++;
+//     }
+
+//     std::cout << "loop";
+//     for (int i = 0; i < 5; i++) {
+//         std::cout << i << "\n";
+//     }
+
+//     return 0;
+// }
+// int main() {
+//     for (int i = 1; i < 11; i++) {
+//         std::cout << i << "\n";
+//     }
+
+//     return 0;
+// }
+
+// int main() {
+//     for (int i = 2; i < 21; i += 2) {
+//         std::cout << i << "\n";
+//     }
+
+//     return 0;
+// }
+
+// int main() {
+//     int age;
+//     age = 10;
+//     std::cout << age << "\n";
+//     std::cout << "Enter your age: ";
+//     std::cin >> age;
+
+//     std::cout << "you are " << age << " years old\n";
+
+//     return 0;
+// }
+
+// int main() {
+//     int number;
+
+//     std::cout << "input a number: ";
+//     std::cin >> number;
+
+//     if (number % 2) {
+//         std::cout << number << " is odd";
+//     } else {
+//         std::cout << number << " is even";
+//     }
+
+//     return 0;
+// }
+
+// int add(int a, int b) { return a + b; }
+
+// void greet() { std::cout << "Hello"; }
+
+// int main() {
+//     int a;
+//     int b;
+
+//     greet();
+//     greet();
+//     std::cout << "Let's add two numbers.\nEnter first number: ";
+//     std::cin >> a;
+//     std::cout << "Enter another number: ";
+//     std::cin >> b;
+
+//     int answer = add(a, b);
+//     std::cout << a << " + " << b << " = " << answer;
+
+//     return 0;
+// }
+
+// int square(int num);
+
+// int main() {
+//     int num;
+//     std::cout << "input number to square: ";
+//     std::cin >> num;
+//     std::cout << square(num);
+//     return 0;
+// }
+
+// int square(int num) { return num * num; }
+
+// int main() {
+//     std::string name;
+//     std::cout << "Enter your name: ";
+//     std::cin >> name;
+
+//     std::cout << "Hello, " << name;
+//     return 0;
+// }
+
+// int main() {
+//     int age;
+//     std::string name;
+
+//     std::cout << "What is your Name? ";
+//     std::cin >> name;
+//     std::cout << "What is your age? ";
+//     std::cin >> age;
+
+//     std::cout << name << " is " << age << " years old";
+
+//     return 0;
+// }
+
+// int main() {
+//     std::string name;
+
+//     std::cout << "Enter fullname: ";
+//     std::getline(std::cin, name);
+
+//     std::cout << name;
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {1, 2, 3, 4, 5};
+
+//     std::cout << numbers[0] << "\n";
+//     std::cout << numbers[1] << "\n";
+//     std::cout << numbers[2] << "\n";
+
+//     numbers.push_back(6);
+
+//     for (int n : numbers) {
+//         std::cout << n << " ,";
+//     }
+
+//     std::cout << "\n";
+//     std::cout << "New \n";
+
+//     for (std::size_t i = 0; i < numbers.size(); i++) {
+//         if (i == numbers.size() - 1) {
+//             std::cout << numbers[i];
+//         } else {
+//             std::cout << numbers[i] << " ,";
+//         }
+//     }
+
+//     std::cout << "\n";
+
+//     std::cout << "Size: " << numbers.size();
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {3, 6, 9, 12};
+
+//     for (std::size_t i = 0; i < numbers.size(); i++) {
+//         std::cout << "Index " << i << ": " << numbers[i] << "\n";
+//     }
+
+//     int sum;
+//     std::cout << "\n";
+
+//     std::cout << sum;
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers;
+//     int amount;
+
+//     std::cout << "Enter amount";
+//     std::cin >> amount;
+
+//     int num;
+
+//     for (int i = 0; i < amount; i++) {
+//         std::cout << "You have " << amount - i
+//                   << " numbers left to add. \nInput number to add next: ";
+//         std::cin >> num;
+//         numbers.push_back(num);
+//     }
+
+//     for (int n : numbers) {
+//         std::cout << n << "  ";
+//     }
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {1, 12, 42, 3, 2, 34};
+
+//     auto it = std::max_element(numbers.begin(), numbers.end());
+
+//     if (it != numbers.end()) {
+//         std::cout << "Largest: " << *it;
+//     }
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {12, 5, 19, 2, 42};
+
+//     auto it = std::max_element(numbers.begin(), numbers.end());
+
+//     if (it != numbers.end()) {
+//         std::cout << *it;
+//     }
+
+//     auto FINDit = std::find(numbers.begin(), numbers.end(), 139);
+
+//     if (FINDit != numbers.end()) {
+//         std::cout << *FINDit;
+//     } else {
+//         std::cout << "could not find the number";
+//     }
+
+//     std::sort(numbers.begin(), numbers.end());
+
+//     for (int n : numbers) {
+//         std::cout << n << "  ";
+//     }
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {12, 5, 19, 2, 42};
+
+//     std::sort(numbers.begin(), numbers.end());
+
+//     for (int n : numbers) {
+//         std::cout << n << "  ";
+//     }
+
+//     std::sort(numbers.begin(), numbers.end(), std::greater<int>());
+
+//     for (int i = 0; i < 2; i++) {
+//         std::cout << "\n";
+//     }
+
+//     for (int n : numbers) {
+//         std::cout << n << "  ";
+//     }
+
+//     return 0;
+// }
+
+int main() {
+    std::vector<int> numbers = {1, 4, 3, 423, 42, 64, 76};
+
+    std::sort(numbers.begin(), numbers.end(),
+              [](int a, int b) { return a > b; });
+
+    for (int n : numbers) {
+        std::cout << n << " ";
+    }
+}
