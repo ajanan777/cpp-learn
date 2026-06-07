@@ -269,13 +269,85 @@
 //     return 0;
 // }
 
+// int main() {
+//     std::vector<int> numbers = {1, 4, 3, 423, 42, 64, 76};
+
+//     std::sort(numbers.begin(), numbers.end(),
+//               [](int a, int b) { return a > b; });
+
+//     for (int n : numbers) {
+//         std::cout << n << " ";
+//     }
+// }
+
+// int main() {
+//     std::vector<int> numbers = {4, 53, 2, 12, 32, 124};
+
+//     auto it = std::find_if(numbers.begin(), numbers.end(),
+//                            [](int n) { return n > 10; });
+
+//     if (it != numbers.end()) {
+//         std::cout << "First number that is over 10: " << *it;
+//     }
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {1, 23, 4231, 2342, 23, 421, 34};
+
+//     auto it = std::find_if(numbers.begin(), numbers.end(),
+//                            [](int n) { return n > 10; });
+
+//     if (it != numbers.end()) {
+//         std::cout << "return " << *it;
+//     }
+// }
+
+// int main() {
+//     std::vector<int> numbers = {123, 23, 32, 32, 34, 2, 1, 321, 31};
+
+//     std::vector<int>::difference_type count = std::count_if(
+//         numbers.begin(), numbers.end(), [](int n) { return n > 32; });
+
+//     std::cout << count;
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {2, 4, 5, 6, 7, 8, 9};
+
+//     bool hasOdd = std::any_of(numbers.begin(), numbers.end(),
+//                               [](int n) { return n % 2 != 0; });
+
+//     std::cout << hasOdd << "\n";
+//     std::cout << std::boolalpha << hasOdd;
+//     std::cout << "hello " << hasOdd;
+//     std::cout << "\n" << "\n";
+//     std::cout << std::boolalpha << 0 << "\n";
+//     std::cout << std::boolalpha << 1;
+
+//     return 0;
+// }
+
 int main() {
-    std::vector<int> numbers = {1, 4, 3, 423, 42, 64, 76};
+    std::vector<int> numbers = {1, 2, 3, 4};
+    std::vector<int> squared(numbers.size());
+    std::vector<int> newSquared;
 
-    std::sort(numbers.begin(), numbers.end(),
-              [](int a, int b) { return a > b; });
+    std::transform(numbers.begin(), numbers.end(), squared.begin(),
+                   [](int n) { return n * n; });
 
-    for (int n : numbers) {
-        std::cout << n << " ";
+    std::transform(squared.begin(), squared.end(),
+                   std::back_inserter(newSquared), [](int n) { return n * n; });
+
+    int i = 0;
+    for (int n : squared) {
+        std::cout << numbers[i] << " --> ";
+        std::cout << n << " --> " << newSquared[i] << "\n";
+        i += 1;
     }
+
+    return 0;
 }
