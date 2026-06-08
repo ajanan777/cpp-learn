@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <functional>
 #include <iostream>
+#include <numeric>
 #include <string>
 #include <vector>
 
@@ -331,23 +332,109 @@
 //     return 0;
 // }
 
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 4};
-    std::vector<int> squared(numbers.size());
-    std::vector<int> newSquared;
+// int main() {
+//     std::vector<int> numbers = {1, 2, 3, 4};
+//     std::vector<int> squared(numbers.size());
+//     std::vector<int> newSquared;
 
-    std::transform(numbers.begin(), numbers.end(), squared.begin(),
-                   [](int n) { return n * n; });
+//     std::transform(numbers.begin(), numbers.end(), squared.begin(),
+//                    [](int n) { return n * n; });
 
-    std::transform(squared.begin(), squared.end(),
-                   std::back_inserter(newSquared), [](int n) { return n * n; });
+//     std::transform(squared.begin(), squared.end(),
+//                    std::back_inserter(newSquared), [](int n) { return n * n;
+//                    });
 
-    int i = 0;
-    for (int n : squared) {
-        std::cout << numbers[i] << " --> ";
-        std::cout << n << " --> " << newSquared[i] << "\n";
-        i += 1;
-    }
+//     int i = 0;
+//     for (int n : squared) {
+//         std::cout << numbers[i] << " --> ";
+//         std::cout << n << " --> " << newSquared[i] << "\n";
+//         i += 1;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {2, 3, 4, 5, 3, 234};
+
+//     int sum = std::accumulate(numbers.begin(), numbers.end(), 0);
+//     int newSum = std::accumulate(numbers.begin(), numbers.end(), 75);
+
+//     std::cout << sum;
+//     std::cout << "\n";
+//     std::cout << newSum;
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {1, 23, 53, 234, 223, 12, 31};
+
+//     std::erase_if(numbers, [](int n) { return n > 200; });
+
+//     for (int n : numbers) {
+//         std::cout << n << "\n";
+//     }
+/*
+
+remove_if compacts the wanted elements and returns the new logical end of the
+vector(does not actually change the size of the vector) {1, 3, 5, ?, ?, ?}
+         ^
+         newEnd
+
+erase deletes the leftover tail and shrinks the vector
+
+*/
+//     std::cout << "\n New stuff \n";
+//     numbers.erase(std::remove_if(numbers.begin(), numbers.end(),
+//                                  [](int n) { return n % 2 == 0; }),
+//                   numbers.end());
+
+//     for (int n : numbers) {
+//         std::cout << n << "\n";
+//     }
+
+//     return 0;
+// }
+
+// int main() {
+//     std::vector<int> numbers = {1, 23, 43, 234, 234, 1, 23, 1};
+
+//     std::cout << "Copies vs Reference \n";
+
+//     for (int n : numbers) {
+//         std::cout << n << " <-- copy of element \n";
+//     }
+//     std::cout << "Therefore when we do n*=2 , it doesn't modify the vector
+//     \n";
+
+//     for (int n : numbers) {
+//         std::cout << n << "--> n*=2 -->";
+//         n *= 2;
+//         std::cout << n << "\n";
+//     }
+
+//     std::cout << "\n" << "To modify actual elements, use reference --> & \n";
+
+//     for (int& n : numbers) {
+//         n *= 4;
+//     }
+
+//     for (int n : numbers) {
+//         std::cout << n << "\n";
+//     }
+
+//     std::cout << "\n" << "For read only access, without copying, use const
+//     \n";
+
+//     for (const int& n : numbers) {
+//         std::cout << n;
+//     }
+
+//     std::vector<int> items;
+//     for (auto item: items) COPIES
+//     for (auto& item: items) WRITEABLE REFERENCE
+//     for (const auto& item: items) READ-ONLY REFERERENCE
+
+//     return 0;
+// }
